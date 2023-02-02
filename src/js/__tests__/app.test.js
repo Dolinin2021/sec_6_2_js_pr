@@ -97,7 +97,17 @@ test('missed object', () => {
       },
     ],
   };
-  expect(() => selectionPanel(character)).toThrow();
+  const result = selectionPanel(character);
+  expect(result).toEqual(
+    [
+      {
+        id: 9,
+        name: 'Нокаутирующий удар',
+        icon: 'http://...',
+        description: 'Описание недоступно',
+      },
+    ],
+  );
 });
 
 test('passing an empty object special', () => {
@@ -109,5 +119,6 @@ test('passing an empty object special', () => {
     defence: 10,
     special: [],
   };
-  expect(() => selectionPanel(character)).toThrow();
+  const result = selectionPanel(character);
+  expect(result).toEqual([]);
 });

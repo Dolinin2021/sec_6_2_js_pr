@@ -1,30 +1,15 @@
-export default function selectionPanel({
-  special: [
-    {
-      id: specialFirstId,
-      name: speciaFirstlName,
-      icon: speciaFirstlIcon,
-      description: specialFirstDescription = 'Описание недоступно',
-    },
-    {
-      id: specialSecondId,
-      name: speciaSecondlName,
-      icon: speciaSecondlIcon,
-      description: specialSecondDescription = 'Описание недоступно',
-    }],
-}) {
+export default function selectionPanel(obj) {
+  const { special } = obj;
   const arr = [];
-  arr.push({
-    id: specialFirstId,
-    name: speciaFirstlName,
-    icon: speciaFirstlIcon,
-    description: specialFirstDescription,
-  },
-  {
-    id: specialSecondId,
-    name: speciaSecondlName,
-    icon: speciaSecondlIcon,
-    description: specialSecondDescription,
-  });
+  for (const {
+    id, name: specialName, icon, description = 'Описание недоступно',
+  } of special) {
+    arr.push({
+      id,
+      name: specialName,
+      icon,
+      description,
+    });
+  }
   return arr;
 }
